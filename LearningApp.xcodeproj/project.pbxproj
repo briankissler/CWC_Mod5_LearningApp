@@ -14,6 +14,8 @@
 		BEAB628726B76BA700659984 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = BEAB628526B76BA700659984 /* data.json */; };
 		BEAB628826B76BA700659984 /* style.html in Resources */ = {isa = PBXBuildFile; fileRef = BEAB628626B76BA700659984 /* style.html */; };
 		BEAB628A26B76C4200659984 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAB628926B76C4200659984 /* ViewModel.swift */; };
+		BEAB628C26B76ED100659984 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAB628B26B76ED100659984 /* Models.swift */; };
+		BEAB628E26B786A600659984 /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAB628D26B786A600659984 /* DataServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		BEAB628526B76BA700659984 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		BEAB628626B76BA700659984 /* style.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = style.html; sourceTree = "<group>"; };
 		BEAB628926B76C4200659984 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		BEAB628B26B76ED100659984 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		BEAB628D26B786A600659984 /* DataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 		BEAB628126B76ABA00659984 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BEAB628B26B76ED100659984 /* Models.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -106,6 +111,7 @@
 			children = (
 				BEAB628526B76BA700659984 /* data.json */,
 				BEAB628626B76BA700659984 /* style.html */,
+				BEAB628D26B786A600659984 /* DataServices.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -181,9 +187,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEAB628E26B786A600659984 /* DataServices.swift in Sources */,
 				BEAB627526B7652300659984 /* HomeView.swift in Sources */,
 				BEAB628A26B76C4200659984 /* ViewModel.swift in Sources */,
 				BEAB627326B7652300659984 /* LearningApp.swift in Sources */,
+				BEAB628C26B76ED100659984 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
