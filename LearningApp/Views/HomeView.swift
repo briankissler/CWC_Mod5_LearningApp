@@ -13,27 +13,43 @@ struct HomeView: View {
     
     var body: some View {
         
-        ScrollView{
+        NavigationView {
             
-            LazyVStack{
+            VStack(alignment: .leading){
+                Text("What do you want to do today")
+                    .padding(.leading, 20 )
                 
-                ForEach(model.Modules){ module in
+                
+                ScrollView{
                     
-                    //learning card
-                    
-                    HomeViewRow(image: module.content.image, category: module.category, description: module.content.description, count: "\(module.content.lessons.count) Lessons ", time: module.content.time)
-                    
-                    
-                    //test card
-                    
-                    HomeViewRow(image: module.test.image, category: "\(module.category) Test ", description: module.test.description, count:  "\(module.test.questions.count) Questions", time: module.test.time)
-                    
+                    LazyVStack{
+                        
+                        ForEach(model.Modules){ module in
+                            
+                            //learning card
+                            
+                            VStack(spacing: 20) {
+                                HomeViewRow(image: module.content.image, category: module.category, description: module.content.description, count: "\(module.content.lessons.count) Lessons ", time: module.content.time)
+                                
+                                //test card
+                                
+                                HomeViewRow(image: module.test.image, category: "\(module.category) Test ", description: module.test.description, count:  "\(module.test.questions.count) Questions", time: module.test.time)
+                            
+                            
+                            }
+                            
+                            
+                            
+                            
+                            
+                        }
+                        
+                    }
+                    .padding()
                     
                 }
-                
             }
-            .padding()
-            
+            .navigationTitle("Get Started")
         }
     }
 }
