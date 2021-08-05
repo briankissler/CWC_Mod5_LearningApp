@@ -17,6 +17,10 @@ class ContentModel: ObservableObject {
     var currentModuleIndex = 0
     
     
+    @Published var currentLesson: Lesson?
+    var currentLessonIndex = 0
+    
+    
     var StyleData: Data?
     
     init() {
@@ -33,25 +37,24 @@ class ContentModel: ObservableObject {
     func beginModule(_ moduleid:Int){
         
         // find index for current id
-        
         if let index = Modules.firstIndex(where: { $0.id == moduleid })
         {
-            print( index )
-            
             currentModuleIndex = index
-            
-            // set current module
-             
         }
-        
         currentModule = Modules[currentModuleIndex]
-        
-        
-        
-        
     }
     
+    //Mark: Lesson Navigation
     
+    func beginLesson(_ lessonid:Int){
+        
+        // find index for current id
+        if let index = currentModule!.content.lessons.firstIndex(where: { $0.id == lessonid })
+        {
+            currentLessonIndex = index
+        }
+        currentLesson = currentModule!.content.lessons[currentLessonIndex]
+    }
     
     
     

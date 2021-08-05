@@ -6,10 +6,40 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct ContentDetailView: View {
+    
+    @EnvironmentObject var model:ContentModel
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+         
+                VStack {
+                    
+                   
+                    if model.currentLesson != nil {
+                        Text( model.currentLesson!.title )
+                        
+                        let url = URL(string: "https://codewithchris.github.io/learningJSON/\(model.currentLesson!.video)")
+                    // Only show video if we get a valid URL
+                    if url != nil {
+                        VideoPlayer(player: AVPlayer(url: url!))
+                            .cornerRadius(10)
+                    }
+                     
+                    }
+                }
+                    .padding()
+                    
+                     
+                
+                
+            
+        
+        
+    
     }
 }
 

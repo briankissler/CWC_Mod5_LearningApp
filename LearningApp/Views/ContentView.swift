@@ -21,7 +21,15 @@ struct ContentView: View {
                     
                     ForEach(model.currentModule!.content.lessons){ lesson in
 
-                        ContentViewRow(lessonID: lesson.id, title: lesson.title, duration: lesson.duration)
+                        
+                        NavigationLink(
+                            destination: ContentDetailView()
+                                .onAppear(perform: { model.beginLesson(lesson.id) } ),
+                            label: {
+                                
+                                ContentViewRow(lessonID: lesson.id, title: lesson.title, duration: lesson.duration)
+                                
+                            })
                         
                         //
 //                        ZStack(alignment: .leading){

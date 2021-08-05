@@ -11,6 +11,7 @@
 		BE6289B126B9E2950010D81F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6289B026B9E2950010D81F /* ContentView.swift */; };
 		BE6289B326B9FC1A0010D81F /* ContentViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6289B226B9FC1A0010D81F /* ContentViewRow.swift */; };
 		BE6289B526BA2A8C0010D81F /* ContentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6289B426BA2A8C0010D81F /* ContentDetailView.swift */; };
+		BE6289B826BB4F070010D81F /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6289B726BB4F070010D81F /* AVKit.framework */; };
 		BEAB627326B7652300659984 /* LearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAB627226B7652300659984 /* LearningApp.swift */; };
 		BEAB627526B7652300659984 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAB627426B7652300659984 /* HomeView.swift */; };
 		BEAB627726B7652500659984 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEAB627626B7652500659984 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		BE6289B026B9E2950010D81F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BE6289B226B9FC1A0010D81F /* ContentViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewRow.swift; sourceTree = "<group>"; };
 		BE6289B426BA2A8C0010D81F /* ContentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailView.swift; sourceTree = "<group>"; };
+		BE6289B726BB4F070010D81F /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		BEAB626F26B7652300659984 /* LearningApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEAB627226B7652300659984 /* LearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningApp.swift; sourceTree = "<group>"; };
 		BEAB627426B7652300659984 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -45,17 +47,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE6289B826BB4F070010D81F /* AVKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE6289B626BB4F070010D81F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE6289B726BB4F070010D81F /* AVKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BEAB626626B7652300659984 = {
 			isa = PBXGroup;
 			children = (
 				BEAB627126B7652300659984 /* LearningApp */,
 				BEAB627026B7652300659984 /* Products */,
+				BE6289B626BB4F070010D81F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
