@@ -12,6 +12,7 @@ struct ContentDetailView: View {
     
     @EnvironmentObject var model:ContentModel
     
+  
     
     var body: some View {
         
@@ -30,6 +31,7 @@ struct ContentDetailView: View {
                 }
                 
                 //description
+                CodeTextView()
                 //Text(model.currentLesson!.title)
                 
                 //button
@@ -62,7 +64,7 @@ struct ContentDetailView: View {
             }
         }
         .padding()
-        
+        .navigationTitle(model.currentLesson?.title ?? "")
         
         
         

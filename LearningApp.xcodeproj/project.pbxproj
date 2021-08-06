@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE03BF3226BDE3E100D43A6F /* CodeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE03BF3126BDE3E100D43A6F /* CodeTextView.swift */; };
 		BE6289AF26B8FAA10010D81F /* HomeViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6289AE26B8FAA10010D81F /* HomeViewRow.swift */; };
 		BE6289B126B9E2950010D81F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6289B026B9E2950010D81F /* ContentView.swift */; };
 		BE6289B326B9FC1A0010D81F /* ContentViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6289B226B9FC1A0010D81F /* ContentViewRow.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BE03BF3126BDE3E100D43A6F /* CodeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTextView.swift; sourceTree = "<group>"; };
 		BE6289AE26B8FAA10010D81F /* HomeViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewRow.swift; sourceTree = "<group>"; };
 		BE6289B026B9E2950010D81F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BE6289B226B9FC1A0010D81F /* ContentViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewRow.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				BE6289B026B9E2950010D81F /* ContentView.swift */,
 				BE6289B226B9FC1A0010D81F /* ContentViewRow.swift */,
 				BE6289B426BA2A8C0010D81F /* ContentDetailView.swift */,
+				BE03BF3126BDE3E100D43A6F /* CodeTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				BEAB628A26B76C4200659984 /* ViewModel.swift in Sources */,
 				BE6289B526BA2A8C0010D81F /* ContentDetailView.swift in Sources */,
 				BEAB627326B7652300659984 /* LearningApp.swift in Sources */,
+				BE03BF3226BDE3E100D43A6F /* CodeTextView.swift in Sources */,
 				BE6289B326B9FC1A0010D81F /* ContentViewRow.swift in Sources */,
 				BE6289AF26B8FAA10010D81F /* HomeViewRow.swift in Sources */,
 				BEAB628C26B76ED100659984 /* Models.swift in Sources */,
