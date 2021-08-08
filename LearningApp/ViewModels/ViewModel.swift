@@ -24,6 +24,8 @@ class ContentModel: ObservableObject {
     @Published var lessonDescription = NSAttributedString()
     var StyleData: Data?
     
+    @Published var selectedNavIndex: Int?
+    
     init() {
         
         Modules.self = dataService.getLocalData()

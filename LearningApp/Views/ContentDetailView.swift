@@ -12,7 +12,7 @@ struct ContentDetailView: View {
     
     @EnvironmentObject var model:ContentModel
     
-  
+    
     
     var body: some View {
         
@@ -36,17 +36,20 @@ struct ContentDetailView: View {
                 
                 //button
                 if model.isLastLesson() {
+                    
                     Button(action: { model.getNextLesson()  },
                            label: {
                             ZStack{
                                 
-                                Rectangle()
-                                    .frame(height: 50)
-                                    .foregroundColor(.green)
-                                    .cornerRadius(10)
+                                
+                                RectangleCardView(myColor: Color.green)
+//                                Rectangle()
+//                                    .frame(height: 50)
+//                                    .foregroundColor(.green)
+//                                    .cornerRadius(10)
                                     .shadow(radius: 5)
                                 
-                               // Text(model.currentModule!.content.lessons[model.currentLessonIndex+1].title)
+                                // Text(model.currentModule!.content.lessons[model.currentLessonIndex+1].title)
                                 
                                 Text("Next Lesson: \(model.currentModule!.content.lessons[model.currentLessonIndex+1].title) ")
                                     .foregroundColor(.white)
@@ -58,6 +61,35 @@ struct ContentDetailView: View {
                            }
                            
                     )
+                }
+                
+                else {
+                    
+                    Button(action: { model.selectedNavIndex = nil  },
+                           label: {
+                            ZStack{
+                                
+                                RectangleCardView(myColor: Color.orange)
+                                
+//                                Rectangle()
+//                                    .frame(height: 50)
+//                                    .foregroundColor(.orange)
+//                                    .cornerRadius(10)
+//                                    .shadow(radius: 5)
+//
+                                // Text(model.currentModule!.content.lessons[model.currentLessonIndex+1].title)
+                                
+                                Text("Complete Module")
+                                    .foregroundColor(.white)
+                                    .bold()
+                                
+                            }
+                            
+                            
+                           }
+                           
+                    )
+                    
                 }
                 
                 

@@ -35,7 +35,10 @@ struct HomeView: View {
                                     destination: ContentView()
                                         .onAppear(perform: {
                                             model.beginModule( module.id )
+                                            //print(model.selectedNavIndex)
                                         }),
+                                    tag: 0,
+                                    selection: $model.selectedNavIndex ,
                                     label: {
                                         HomeViewRow(image: module.content.image, category: "Learn \(module.category)", description: module.content.description, count: "\(module.content.lessons.count) Lessons ", time: module.content.time)
                                     })
