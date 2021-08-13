@@ -16,7 +16,6 @@ class ContentModel: ObservableObject {
     @Published var currentModule: Module?
     var currentModuleIndex = 0
     
-    
     @Published var currentLesson: Lesson?
     @Published var currentLessonIndex = 0
     
@@ -24,7 +23,12 @@ class ContentModel: ObservableObject {
     @Published var lessonDescription = NSAttributedString()
     var StyleData: Data?
     
+    //Current Question
+    @Published var currentQuestion: Questions?
+    var currentQuestionIndex = 0
+    
     @Published var selectedNavIndex: Int?
+    @Published var selectedTestNavIndex: Int?
     
     init() {
         
@@ -45,6 +49,20 @@ class ContentModel: ObservableObject {
             currentModuleIndex = index
         }
         currentModule = Modules[currentModuleIndex]
+        
+    }
+    
+    func beginTestQuestion(_ moduleid:Int){
+        
+        beginModule(moduleid)
+        
+        if currentModule!.test.questions.count > 0 {
+            
+            currentQuestion = currentModule!.test.questions[currentQuestionIndex]
+            
+        }
+        
+        
     }
     
     //Mark: Lesson Navigation
@@ -64,6 +82,12 @@ class ContentModel: ObservableObject {
         
         return currentLessonIndex+1 < currentModule!.content.lessons.count
     }
+   
+    func isLastQuestion() -> Bool {
+        
+        return currentQuestionIndex+1 < currentModule!.test.questions.count
+    }
+    
     
     func getNextLesson()
     {
@@ -81,6 +105,19 @@ class ContentModel: ObservableObject {
             
         }
         
+    }
+    
+    func getNextQuestion () {
+        
+        if isLastQuestion() {
+            
+            currentQuestion = currentModule!.test.questions[currentQuestionIndex+1]
+        }
+        else{
+            
+            currentQuestion = currentModule!.test.questions[0]
+            
+        }
         
     }
     
