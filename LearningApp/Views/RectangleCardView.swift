@@ -17,6 +17,7 @@ struct RectangleCardView: View {
             .frame(height: 50)
             .foregroundColor(myColor)
             .cornerRadius(10)
+            .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
     }
 }
 

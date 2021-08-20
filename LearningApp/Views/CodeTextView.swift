@@ -10,6 +10,7 @@ import SwiftUI
 struct CodeTextView: UIViewRepresentable {
     
     @EnvironmentObject var model: ContentModel
+    var type: String
     
     
     func makeUIView(context: Self.Context) -> UITextView {
@@ -26,8 +27,14 @@ struct CodeTextView: UIViewRepresentable {
     {
         
         // Set the attributed text for lesson
-        
-        textView.attributedText = model.lessonDescription
+        if type == "Lesson" {
+            
+            textView.attributedText = model.lessonDescription
+        }
+        else {
+            textView.attributedText = model.questionDescription
+            
+        }
         //scroll to top
         
         textView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
@@ -37,7 +44,10 @@ struct CodeTextView: UIViewRepresentable {
 }
 
 struct CodeTextView_Previews: PreviewProvider {
+    
+    @EnvironmentObject var model: ContentModel
+    
     static var previews: some View {
-        CodeTextView()
+        CodeTextView(type: "lesson")
     }
 }

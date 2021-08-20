@@ -25,6 +25,7 @@ class ContentModel: ObservableObject {
     
     //Current Question
     @Published var currentQuestion: Questions?
+    @Published var questionDescription = NSAttributedString()
     var currentQuestionIndex = 0
     
     @Published var selectedNavIndex: Int?
@@ -56,9 +57,12 @@ class ContentModel: ObservableObject {
         
         beginModule(moduleid)
         
+        //lessonDescription =  addStyling(currentLesson!.explanation)
+        
         if currentModule!.test.questions.count > 0 {
             
             currentQuestion = currentModule!.test.questions[currentQuestionIndex]
+            questionDescription = addStyling(currentQuestion!.content)
             
         }
         
@@ -95,7 +99,6 @@ class ContentModel: ObservableObject {
             
             currentLesson = currentModule!.content.lessons[currentLessonIndex+1]
             lessonDescription =  addStyling(currentLesson!.explanation)
-            
             currentLessonIndex += 1
             
         }
@@ -112,6 +115,8 @@ class ContentModel: ObservableObject {
         if isLastQuestion() {
             
             currentQuestion = currentModule!.test.questions[currentQuestionIndex+1]
+            questionDescription = addStyling(currentQuestion!.content)
+            currentQuestionIndex += 1
         }
         else{
             

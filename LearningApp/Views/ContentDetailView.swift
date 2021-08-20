@@ -31,7 +31,7 @@ struct ContentDetailView: View {
                 }
                 
                 //description
-                CodeTextView()
+                CodeTextView(type: "Lesson")
                 //Text(model.currentLesson!.title)
                 
                 //button
