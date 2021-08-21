@@ -62,12 +62,18 @@ struct TestView: View {
                     
                     if submitted {
                         
+                        
                         model.getNextQuestion()
                         selectedAnswer = -1
                         submitted = false
                         myColor2 = myColor2.map{_ in Color.white}
                         myColor2[5] = Color.gray
+                        
+                        
+                            
+                        
                     }
+                    //Next Question
                     else {
                         
                         submitted = true
@@ -77,9 +83,13 @@ struct TestView: View {
                         }
                         else {
                             myColor2[model.currentQuestion!.correctIndex] = Color.red
+                    
                         }
-                   // model.getNextQuestion()
-                   // selectedAnswer = -1
+                        
+                        if  model.currentQuestionIndex+1 == model.currentModule!.test.questions.count {
+                            
+                            model.currentQuestion = nil
+                        }
                     }
                     
                     
@@ -87,7 +97,7 @@ struct TestView: View {
                     
                     ZStack{
                         
-                        RectangleCardView(myColor: Color.green)
+                        RectangleCardView(myColor: submitted ? Color.orange : Color.green )
                         
                         Text(submitted ? "Next Question" : "Submit Answer")
                             .foregroundColor(.white)
@@ -98,6 +108,12 @@ struct TestView: View {
                 }).disabled( selectedAnswer == -1  )
                 
                 
+                
+            }
+            else {
+                
+                //Text("TEST")
+                TestResultView(numCorrect: numberCorrect)
                 
             }
             
