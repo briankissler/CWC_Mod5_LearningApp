@@ -69,4 +69,91 @@ class dataService {
 
     }
     
+    
+    static func getLocalData2() -> [Module] {
+        
+        var myError = ""
+       
+        if let path = Bundle.main.path(forResource: "data2", ofType: "json") {
+
+            let url = URL(fileURLWithPath: path)
+
+            do {
+
+                myError = "DATA - "
+                let data = try Data(contentsOf: url)
+
+                let decoder = JSONDecoder()
+
+                myError = "DECODE - "
+                let getData = try decoder.decode([Module].self, from: data)
+
+                return getData
+            }
+            catch
+            {
+                print(myError)
+                print(error)
+            }
+
+
+
+        }
+        else
+        {
+            return [Module]()
+        }
+
+        return [Module]()
+
+    }
+    
+    
+    
+    //func getRemoteData( completion: @escaping ( [Module]?) -> Void )  {
+    static func getRemoteData(Completion: @escaping ([Module]?, Error?) -> Void) {
+
+        let urlString =  "https://briankissler.github.io/MyData/data2.json"
+
+        let url = URL(string: urlString)
+
+        let session = URLSession.shared
+
+
+        let Task = session.dataTask(with: url!, completionHandler: { data, response, error in
+
+            guard let data = data else {
+                return
+            }
+            //handle
+            do {
+
+                //myError = "DATA - "
+                //let data = try Data(contentsOf: url)
+
+                let decoder = JSONDecoder()
+
+                //myError = "DECODE - "
+                let getData = try decoder.decode([Module].self, from: data)
+
+//                if let userData = jsonDict["data"] {
+//                        userCompletionHandler(userData, nil)
+                  //    }
+
+                Completion(getData, nil)
+
+            }
+            catch
+            {
+
+            }
+
+
+        })
+
+        Task.resume()
+
+        //return getData
+    }
+
 }

@@ -35,9 +35,76 @@ class ContentModel: ObservableObject {
         
         Modules.self = dataService.getLocalData()
         
+        //Modules.self += dataService.getLocalData2()
+        
+       // getRemoteData2()
+        
+        // Append Remote
+
+        dataService.getRemoteData( Completion: {myModel, error in
+
+            if let myModel=myModel {
+
+                self.Modules += myModel
+
+            }
+
+        })
+        
+        //Modules.self += dataService.getRemoteData()
+        
         StyleData.self = dataService.getHTML()
         
         
+    }
+    
+    func getRemoteData2() {
+        
+        let urlString = "https://briankissler.github.io/MyData/data2.json"
+        
+        
+        
+        let url = URL(string: urlString )
+        
+        guard url != nil else {
+            return
+        }
+        
+        let request = URLRequest(url: url!)
+        
+        let session = URLSession.shared
+        
+        let dataTask = session.dataTask(with: request) { (data, response, error) in
+            
+        
+            guard error == nil else {
+                return
+            }
+            
+            
+            do {
+               
+                let decoder = JSONDecoder()
+                
+                let modules = try decoder.decode([Module].self, from: data!)
+
+                self.Modules += modules
+                
+//                DispatchQueue.main.async {
+//                    self.Modules += modules
+               // }
+                
+            }
+            
+            catch{
+                //print( error )
+                print(error.localizedDescription)
+            }
+            
+        }
+        
+        dataTask.resume()
+
     }
     
     //Mark: Module Navigation
