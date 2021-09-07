@@ -33,8 +33,11 @@ class ContentModel: ObservableObject {
     
     init() {
         
-        Modules.self = dataService.getLocalData()
-        
+        DispatchQueue.main.async{
+            
+            self.Modules = dataService.getLocalData()
+            
+        }
         //Modules.self += dataService.getLocalData2()
         
        // getRemoteData2()
@@ -42,10 +45,12 @@ class ContentModel: ObservableObject {
         // Append Remote
 
         dataService.getRemoteData( Completion: {myModel, error in
-
+            
             if let myModel=myModel {
-
-                self.Modules += myModel
+                DispatchQueue.main.async {
+                    
+                    self.Modules += myModel
+                }
 
             }
 
@@ -61,8 +66,6 @@ class ContentModel: ObservableObject {
     func getRemoteData2() {
         
         let urlString = "https://briankissler.github.io/MyData/data2.json"
-        
-        
         
         let url = URL(string: urlString )
         
@@ -88,11 +91,10 @@ class ContentModel: ObservableObject {
                 
                 let modules = try decoder.decode([Module].self, from: data!)
 
-                self.Modules += modules
                 
-//                DispatchQueue.main.async {
-//                    self.Modules += modules
-               // }
+                DispatchQueue.main.async {
+                    self.Modules += modules
+                }
                 
             }
             
